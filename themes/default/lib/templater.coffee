@@ -11,9 +11,14 @@ Theme   = require './_theme'
 module.exports = class Theme.Templater
 
   sourceOf: (subject) ->
-    Path.join(__dirname, '..', subject)
+    localDir = Path.join(@themeLocal, subject)
+    if FS.existsSync localDir
+      return localDir
+    return Path.join(__dirname, '..', subject) 
 
-  constructor: (@destination) ->
+  constructor: (@environment) ->
+    @destination = @environment.options.output
+    @themeLocal = @environment.options['theme-local']
     Mincer.StylusEngine.configure (stylus) => stylus.use Nib()
     Mincer.CoffeeEngine.configure bare: false
 
@@ -33,12 +38,18 @@ module.exports = class Theme.Templater
         @JST[keyword] = hamlc.compile FS.readFileSync(template, 'utf8'),
           escapeAttributes: false
 
-  compileAsset: (from, to=false) ->
+  compileCSS: (from, to=false) ->
+      @compileAsset('assets/stylesheets', from, to)
+
+  compileJavascript: (from, to=false) ->
+      @compileAsset('assets/javascript', from, to)
+
+  compileAsset: (folder, from, to=false) ->
     mincer = new Mincer.Environment()
-    mincer.appendPath @sourceOf('assets')
+    mincer.appendPath @sourceOf(folder)
 
     asset = mincer.findAsset(from)
-    file  = Path.join(@destination, to || from)
+    file  = Path.join(@destination, Path.basename(folder), to || from)
     dir   = Path.dirname(file)
 
     mkdirp.sync(dir)

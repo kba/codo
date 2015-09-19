@@ -20,12 +20,12 @@ module.exports = class Theme.Theme
     theme.compile()
 
   constructor: (@environment) ->
-    @templater  = new Templater(@environment.options.output)
+    @templater  = new Templater(@environment)
     @referencer = new Codo.Tools.Referencer(@environment)
 
   compile: ->
-    @templater.compileAsset('javascript/application.js')
-    @templater.compileAsset('stylesheets/application.css')
+    @templater.compileJavascript('application.js')
+    @templater.compileCSS('application.css')
 
     @renderAlphabeticalIndex()
     @render 'method_list', 'method_list.html'

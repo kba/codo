@@ -33,6 +33,7 @@ module.exports = class Environment
     @options.cautios ?= false
     @options.quiet   ?= false
     @options.closure ?= false
+    @options['theme-local'] ?= Path.join(process.cwd(), 'codo')
     @options.output  ?= 'doc'
     @options.basedir ?= process.cwd()
 

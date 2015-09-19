@@ -1,6 +1,6 @@
 body {
   padding: 0 5px;
-  font-family: "Lucida Sans", "Lucida Grande", Verdana, Arial, sans-serif;
+  font-family: Fonts.body
   font-size: 13px;
 }
 
@@ -8,13 +8,13 @@ h1 {
   font-size: 25px;
   margin: 0.8em 0 0.5em;
   padding-top: 4px;
-  border-top: 1px dotted #d5d5d5;
+  border-top: 1px dotted Colors.h1-border-fg;
 }
 
 h2 {
   padding: 0;
   padding-bottom: 3px;
-  border-bottom: 1px #aaa solid;
+  border-bottom: 1px Colors.h2-border-fg solid;
   font-size: 1.4em;
   margin: 1.8em 0 0.5em;
 }
@@ -41,7 +41,7 @@ h2 {
 
   display: none;
 
-  background-color: #fff;
+  background-color: Colors.fuzzySearch-bg;
   padding-top: 25px;
   padding-bottom: 25px;
 
@@ -49,7 +49,7 @@ h2 {
     margin-left: 10%;
     border-radius: 5px;
     width: 80%;
-    border: 2px solid #05a;
+    border: 2px solid Colors.link-fg;
     font-size: 20px;
     padding: 5px;
   }
@@ -63,51 +63,51 @@ h2 {
       padding: 3px;
 
       &.stripe {
-        background: #F0F0F0;
+        background: Colors.fuzzySearch-stripe-bg
       }
 
       &.selected {
-        background: #05a;
+        background: Colors.link-fg;
 
         a {
-          color: #fff;
+          color: Colors.fuzzySearch-link-fg;
 
           &:visited {
-            color: #fff;
+            color: Colors.fuzzySearch-link-fg;
           }
 
           &:hover {
-            color: #05a;
+            color: Colors.link-fg;
           }
 
           span {
-            color: #05a;
+            color: Colors.link-fg;
           }
         }
       }
 
       a {
-        color: #05a;
+        color: Colors.link-fg;
         font-size: 18px;
         text-decoration: none;
 
         &:visited {
-          color: #05a;
+          color: Colors.link-fg;
         }
 
         &:hover {
-          background: #ffffa5;
+          background: Colors.link-hover-bg;
         }
 
         span {
-          background-color: #ff0;
+          background-color: Colors.fuzzySearch-highlight-bg;
         }
       }
 
       small {
         font-size: 14px;
         padding-left: 10px;
-        color: #888;
+        color: Colors.fuzzySearch-small-fg;
       }
     }
   }
@@ -134,7 +134,7 @@ h2 {
 
   padding: 25px;
 
-  background-color: #fff;
+  background-color: Colors.help-bg;
 
   ul {
     list-style-type: none;
@@ -157,7 +157,7 @@ h2 {
         padding: 5px;
         margin-right: 20px;
 
-        background: #eee;
+        background: Colors.help-key-bg;
         text-align: center;
       }
 
@@ -169,11 +169,11 @@ h2 {
 #content {
   a:link, a:visited {
     text-decoration: none;
-    color: #05a;
+    color: Colors.link-fg;
   }
 
   a:hover {
-    background: #ffffa5;
+    background: Colors.link-hover-bg;
   }
 
   #filecontents {

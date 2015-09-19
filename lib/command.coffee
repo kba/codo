@@ -18,6 +18,7 @@ module.exports = class Command
     {name: 'verbose', alias: 'v', describe: 'Show parsing errors', boolean: true, default: false}
     {name: 'undocumented', alias: 'u', describe: 'List undocumented objects', boolean: true, default: false}
     {name: 'closure', describe: 'Try to parse closure-like block comments', boolean: true, default: false}
+    {name: 'theme-local', describe: 'Local theme override folder', default: './codo'}
     {name: 'debug', alias: 'd', boolean: true}
   ]
 
